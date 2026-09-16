@@ -1,6 +1,4 @@
-
 #pragma once
-
 #include <Arduino.h>
 
 const int BUILT_IN_LED = 2;
