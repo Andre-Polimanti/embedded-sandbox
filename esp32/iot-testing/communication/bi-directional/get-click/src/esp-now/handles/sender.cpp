@@ -1,10 +1,12 @@
-#include "esp_now/handles/sender.hpp"
+#include "esp-now/handles/sender.hpp"
 
 uint8_t broadcastAddress[] = {0x10, 0x97, 0xBD, 0xCA, 0xD0, 0x24};
 esp_now_peer_info_t peerInfo;
 
-void sendData(int& data) {
-  esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &data, sizeof(data)); // Checks for errors
+answer answer_to_send;
+
+void sendAnswer() {
+  esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &answer_to_send, sizeof(answer_to_send)); // Checks for errors
    
   if (result == ESP_OK) {
     Serial.println("Sent with success");
